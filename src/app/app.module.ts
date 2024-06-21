@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,11 @@ import { SnippetComponent } from './components/docs/snippet/snippet.component';
 import { FolderIconComponent } from './components/docs/icons/folder-icon/folder-icon.component';
 import { AngularIconComponent } from './components/docs/icons/angular-icon/angular-icon.component';
 
+import { StaffLIstComponent } from './company/staff-list/staff-list.component';
+import { PendingListComponent } from './company/pending-list/pending-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TabGroupComponent } from './company/tab-group/tab-group.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,10 +85,14 @@ import { AngularIconComponent } from './components/docs/icons/angular-icon/angul
     ContentComponent,
     FolderIconComponent,
     AngularIconComponent,
+    StaffLIstComponent,
+    PendingListComponent,
+    TabGroupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,MatTabsModule],
   providers: [],
   bootstrap: [AppComponent],
   exports: [DocComponent],
+
 })
 export class AppModule {}

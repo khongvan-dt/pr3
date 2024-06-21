@@ -10,11 +10,12 @@ import { TimeManageComponent } from './pages/time-manage/time-manage.component';
 import { DocumentationComponent } from './pages/documentation/documentation.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TabGroupComponent } from './company/tab-group/tab-group.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-
+  { path: 'admin/tablist', component: TabGroupComponent },
   { path: 'home', component: HomeComponent },
   { path: 'admin/projects', component: ProjectComponent },
   { path: 'admin/tasks', component: TaskComponent },
