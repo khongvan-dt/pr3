@@ -24,10 +24,7 @@ import { CalendarIconComponent } from './dashboard/icons/calendar-icon/calendar-
 import { DashboardIconComponent } from './dashboard/icons/dashboard-icon/dashboard-icon.component';
 import { TimeManageIconComponent } from './dashboard/icons/time-manage-icon/time-manage-icon.component';
 
-// others
-import { DocComponent } from './components/docs/doc/doc.component';
-import { ContentComponent } from './components/content/content.component';
-import { SnippetComponent } from './components/docs/snippet/snippet.component';
+// othersimport { SnippetComponent } from './components/docs/snippet/snippet.component';
 import { FolderIconComponent } from './components/docs/icons/folder-icon/folder-icon.component';
 import { AngularIconComponent } from './components/docs/icons/angular-icon/angular-icon.component';
 
@@ -37,6 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabGroupComponent } from './company/tab-group/tab-group.component';
 import { OverlayComponent } from './dashboard/overlay/overlay.component';
 import { LayoutComponent } from './dashboard/layout/layout.component';
+import { SnippetComponent } from './components/docs/snippet/snippet.component';
+import { HomeComponent } from './company/home/home.component';
 
 @NgModule({
   declarations: [
@@ -63,19 +62,17 @@ import { LayoutComponent } from './dashboard/layout/layout.component';
     TimeManageIconComponent,
 
     // others
-    DocComponent,
     SnippetComponent,
-    ContentComponent,
     FolderIconComponent,
     AngularIconComponent,
     StaffLIstComponent,
     PendingListComponent,
     TabGroupComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,MatTabsModule,FormsModule ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [DocComponent],
 
 })
 export class AppModule {}
