@@ -10,9 +10,7 @@ export class SnippetComponent {
 
   constructor() {
     this.snippets = `
-<sidebar-item title="Dashboard" routerLink="/">
-    <dashboard-icon></dashboard-icon>
-</sidebar-item>
+
 <sidebar-item title="Projects" routerLink="/admin/projects">
     <project-icon></project-icon>
 </sidebar-item>`;

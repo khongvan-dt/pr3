@@ -1,28 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // dashboard components
-import { LayoutComponent } from './dashboard/layout/layout.component';
 import { TopBarComponent } from './dashboard/top-bar/top-bar.component';
-import { OverlayComponent } from './dashboard/overlay/overlay.component';
 import { SidebarComponent } from './dashboard/sidebar/sidebar/sidebar.component';
 import { SidebarItemComponent } from './dashboard/sidebar/sidebar-item/sidebar-item.component';
 import { SidebarItemsComponent } from './dashboard/sidebar/sidebar-items/sidebar-items.component';
 import { SidebarHeaderComponent } from './dashboard/sidebar/sidebar-header/sidebar-header.component';
 
-// pages
-import { TaskComponent } from './pages/task/task.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ReportComponent } from './pages/report/report.component';
-import { ProjectComponent } from './pages/project/project.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { CalendarComponent } from './pages/calendar/calendar.component';
-import { TimeManageComponent } from './pages/time-manage/time-manage.component';
-import { DocumentationComponent } from './pages/documentation/documentation.component';
 
 // icons
 import { DocIconComponent } from './dashboard/icons/doc-icon/doc-icon.component';
@@ -45,6 +35,8 @@ import { StaffLIstComponent } from './company/staff-list/staff-list.component';
 import { PendingListComponent } from './company/pending-list/pending-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabGroupComponent } from './company/tab-group/tab-group.component';
+import { OverlayComponent } from './dashboard/overlay/overlay.component';
+import { LayoutComponent } from './dashboard/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -59,15 +51,6 @@ import { TabGroupComponent } from './company/tab-group/tab-group.component';
     SidebarItemsComponent,
     SidebarHeaderComponent,
 
-    // pages
-    TaskComponent,
-    HomeComponent,
-    ReportComponent,
-    ProjectComponent,
-    SettingsComponent,
-    CalendarComponent,
-    TimeManageComponent,
-    DocumentationComponent,
 
     // icons
     DocIconComponent,
@@ -89,7 +72,7 @@ import { TabGroupComponent } from './company/tab-group/tab-group.component';
     PendingListComponent,
     TabGroupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,MatTabsModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,MatTabsModule,FormsModule ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [DocComponent],

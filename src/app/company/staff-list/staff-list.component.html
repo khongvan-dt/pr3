@@ -1,351 +1,147 @@
-   <div class="flex flex-wrap">
-      <div class="w-full md:w-4/12">
-        <div class="p-2">
-          <div class="rounded-3xl p-4 bg-[#fee4cb]">
-            <div class="justify-b flex items-center">
-              <span class="text-sm">December 10, 2020</span>
-            </div>
-            <div class="mb-4 mt-5 text-center">
-              <p class="text-base font-bold opacity-70">Web Designing</p>
-              <p class="mt-2 text-sm opacity-70">Prototyping</p>
-            </div>
-            <div>
-              <p class="m-0 text-sm font-bold">Progress</p>
-              <div
-                class="mx-0 my-2 h-1 w-full overflow-hidden rounded-md bg-white"
-              >
-                <span class="block h-1 w-6/12 rounded-md bg-yellow-700"></span>
-              </div>
-              <p class="m-0 text-right text-sm font-bold">60%</p>
-            </div>
-            <div class="relative flex justify-between pt-4">
-              <div class="flex items-center">
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-                  alt="participant"
-                />
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                  alt="participant"
-                />
-                <button
-                  class="ml-3 flex h-5 w-5 items-center justify-center rounded-full border-none bg-white p-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-plus"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="flex shrink-0 rounded-lg px-4 py-2 text-sm font-bold text-yellow-600"
-              >
-                2 Days Left
-              </div>
-            </div>
-          </div>
+<div class="mt-4">
+  <div class="container mt-10 border">
+    <div class="py-8">
+      <div class="py-4 d-flex justify-content-end container">
+        <div class="input-group mb-2 ">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="basic-addon1"
+            [(ngModel)]="searchTerm"
+            (input)="performSearch()"
+          />
         </div>
       </div>
-      <div class="w-full md:w-4/12">
-        <div class="p-2">
-          <div class="rounded-3xl bg-gray-300 p-4">
-            <div class="justify-b flex items-center">
-              <span class="text-sm">December 10, 2020</span>
-            </div>
-            <div class="mb-4 mt-5 text-center">
-              <p class="text-base font-bold opacity-70">Web Designing</p>
-              <p class="mt-2 text-sm opacity-70">Prototyping</p>
-            </div>
-            <div>
-              <p class="m-0 text-sm font-bold">Progress</p>
-              <div
-                class="mx-0 my-2 h-1 w-full overflow-hidden rounded-md bg-white"
+      <div class="max-w-full overflow-x-auto rounded-lg">
+        <table class="w-full leading-normal text-black">
+          <thead>
+            <tr>
+              <th scope="col" class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase">
+                User
+              </th>
+              <th scope="col" class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase">
+                Role
+              </th>
+              <th scope="col" class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase">
+                Created_at
+              </th>
+              <th scope="col" class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase">
+                Status
+              </th>
+              <th scope="col" class="border-b border-gray-200 px-5 py-3 text-left text-sm font-normal uppercase">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody class="text-black">
+            <!-- Dòng dữ liệu được lặp lại với Angular *ngFor -->
+            <tr *ngFor="let user of filteredUsers">
+              <td class="border-b border-gray-200 p-5 text-sm">
+                <div class="flex items-center">
+                  <div class="shrink-0">
+                    <a href="#" class="relative block">
+                      <img
+                        alt="profil"
+                        [src]="user.avatar"
+                        class="mx-auto h-10 w-10 rounded-full object-cover"
+                      />
+                    </a>
+                  </div>
+                  <div class="ml-3">
+                    <p class="whitespace-nowrap">{{ user.name }}</p>
+                  </div>
+                </div>
+              </td>
+              <td class="border-b border-gray-200 p-5 text-sm">
+                <p class="whitespace-nowrap">{{ user.role }}</p>
+              </td>
+              <td class="border-b border-gray-200 p-5 text-sm">
+                <p class="whitespace-nowrap">{{ user.created_at }}</p>
+              </td>
+              <td class="border-b border-gray-200 p-5 text-sm">
+                <span class="relative inline-block px-3 py-1 font-semibold leading-tight">
+                  <span
+                    aria-hidden="true"
+                    class="absolute inset-0 rounded-full bg-green-200 opacity-50"
+                  ></span>
+                  <span class="relative">{{ user.status }}</span>
+                </span>
+              </td>
+              <td class="border-b border-gray-200 p-5 text-sm">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Đoạn phân trang -->
+        <div class="xs:flex-row xs:justify-between flex flex-col items-center p-5">
+          <div class="flex items-center">
+            <!-- Các nút phân trang -->
+            <button
+              type="button"
+              class="w-full rounded-l-xl border bg-white p-4 text-base text-gray-600 hover:bg-gray-100"
+            >
+              <svg
+                width="9"
+                fill="currentColor"
+                height="8"
+                viewBox="0 0 1792 1792"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <span class="block h-1 w-5/12 rounded-md bg-indigo-700"></span>
-              </div>
-              <p class="m-0 text-right text-sm font-bold">50%</p>
-            </div>
-            <div class="relative flex justify-between pt-4">
-              <div class="flex items-center">
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-                  alt="participant"
+                <path
+                  d="M1427 301l-531 531 531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19l-742-742q-19-19-19-45t19-45l742-742q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z"
                 />
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                  alt="participant"
-                />
-                <button
-                  class="ml-3 flex h-5 w-5 items-center justify-center rounded-full border-none bg-white p-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="flex shrink-0 rounded-lg px-4 py-2 text-sm font-bold text-indigo-700"
+              </svg>
+            </button>
+            <!-- Các nút phân trang khác -->
+            <button
+              type="button"
+              class="w-full border-y bg-white px-4 py-2 text-base text-indigo-500 hover:bg-gray-100"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="w-full border bg-white px-4 py-2 text-base text-gray-600 hover:bg-gray-100"
+            >
+              2
+            </button>
+            <!-- Các nút phân trang khác -->
+            <button
+              type="button"
+              class="w-full border-y bg-white px-4 py-2 text-base text-gray-600 hover:bg-gray-100"
+            >
+              3
+            </button>
+            <!-- Các nút phân trang khác -->
+            <button
+              type="button"
+              class="w-full border bg-white px-4 py-2 text-base text-gray-600 hover:bg-gray-100"
+            >
+              4
+            </button>
+            <!-- Các nút phân trang khác -->
+            <button
+              type="button"
+              class="w-full rounded-r-xl border-y border-r bg-white p-4 text-base text-gray-600 hover:bg-gray-100"
+            >
+              <svg
+                width="9"
+                fill="currentColor"
+                height="8"
+                viewBox="0 0 1792 1792"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                2 Days Left
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full md:w-4/12">
-        <div class="p-2">
-          <div class="rounded-3xl bg-green-200 p-4">
-            <div class="flex items-center">
-              <span class="text-sm">December 10, 2020</span>
-            </div>
-            <div class="mb-4 mt-5 text-center">
-              <p class="text-base font-bold opacity-70">Web Designing</p>
-              <p class="mt-2 text-sm opacity-70">Prototyping</p>
-            </div>
-            <div>
-              <p class="m-0 text-sm font-bold">Progress</p>
-              <div
-                class="mx-0 my-2 h-1 w-full overflow-hidden rounded-md bg-white"
-              >
-                <span class="block h-1 w-7/12 rounded-md bg-green-700"></span>
-              </div>
-              <p class="m-0 text-right text-sm font-bold">70%</p>
-            </div>
-            <div class="relative flex justify-between pt-4">
-              <div class="flex items-center">
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-                  alt="participant"
+                <path
+                  d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z"
                 />
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                  alt="participant"
-                />
-                <button
-                  class="ml-3 flex h-5 w-5 items-center justify-center rounded-full border-none bg-white p-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="flex shrink-0 rounded-lg px-4 py-2 text-sm font-bold text-green-700"
-              >
-                2 Days Left
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full md:w-4/12">
-        <div class="p-2">
-          <div class="rounded-3xl bg-blue-200 p-4">
-            <div class="flex items-center">
-              <span class="text-sm">December 10, 2020</span>
-            </div>
-            <div class="mb-4 mt-5 text-center">
-              <p class="text-base font-bold opacity-70">Web Designing</p>
-              <p class="mt-2 text-sm opacity-70">Prototyping</p>
-            </div>
-            <div>
-              <p class="m-0 text-sm font-bold">Progress</p>
-              <div
-                class="mx-0 my-2 h-1 w-full overflow-hidden rounded-md bg-white"
-              >
-                <span class="block h-1 w-7/12 rounded-md bg-blue-700"></span>
-              </div>
-              <p class="m-0 text-right text-sm font-bold">70%</p>
-            </div>
-            <div class="relative flex justify-between pt-4">
-              <div class="flex items-center">
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-                  alt="participant"
-                />
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                  alt="participant"
-                />
-                <button
-                  class="ml-3 flex h-5 w-5 items-center justify-center rounded-full border-none bg-white p-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="flex shrink-0 rounded-lg px-4 py-2 text-sm font-bold text-blue-700"
-              >
-                2 Days Left
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full md:w-4/12">
-        <div class="p-2">
-          <div class="rounded-3xl bg-red-200 p-4">
-            <div class="flex items-center">
-              <span class="text-sm">December 10, 2020</span>
-            </div>
-            <div class="mb-4 mt-5 text-center">
-              <p class="text-base font-bold opacity-70">Web Designing</p>
-              <p class="mt-2 text-sm opacity-70">Prototyping</p>
-            </div>
-            <div>
-              <p class="m-0 text-sm font-bold">Progress</p>
-              <div
-                class="mx-0 my-2 h-1 w-full overflow-hidden rounded-md bg-white"
-              >
-                <span class="block h-1 w-7/12 rounded-md bg-red-700"></span>
-              </div>
-              <p class="m-0 text-right text-sm font-bold">70%</p>
-            </div>
-            <div class="relative flex justify-between pt-4">
-              <div class="flex items-center">
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-                  alt="participant"
-                />
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                  alt="participant"
-                />
-                <button
-                  class="ml-3 flex h-5 w-5 items-center justify-center rounded-full border-none bg-white p-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="flex shrink-0 rounded-lg px-4 py-2 text-sm font-bold text-red-700"
-              >
-                2 Days Left
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full md:w-4/12">
-        <div class="p-2">
-          <div class="rounded-3xl bg-purple-200 p-4">
-            <div class="flex items-center">
-              <span class="text-sm">December 10, 2020</span>
-            </div>
-            <div class="mb-4 mt-5 text-center">
-              <p class="text-base font-bold opacity-70">Web Designing</p>
-              <p class="mt-2 text-sm opacity-70">Prototyping</p>
-            </div>
-            <div>
-              <p class="m-0 text-sm font-bold">Progress</p>
-              <div
-                class="mx-0 my-2 h-1 w-full overflow-hidden rounded-md bg-white"
-              >
-                <span class="block h-1 w-7/12 rounded-md bg-purple-700"></span>
-              </div>
-              <p class="m-0 text-right text-sm font-bold">70%</p>
-            </div>
-            <div class="relative flex justify-between pt-4">
-              <div class="flex items-center">
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
-                  alt="participant"
-                />
-                <img
-                  class="h-5 w-5 overflow-hidden rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-                  alt="participant"
-                />
-                <button
-                  class="ml-3 flex h-5 w-5 items-center justify-center rounded-full border-none bg-white p-0"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="flex shrink-0 rounded-lg px-4 py-2 text-sm font-bold text-purple-700"
-              >
-                2 Days Left
-              </div>
-            </div>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
